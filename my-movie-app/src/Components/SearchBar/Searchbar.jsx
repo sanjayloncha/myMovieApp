@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Input, InputGroup } from "@chakra-ui/react";
 import myAction from "../../Redux/Action/action";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Movie from "../Movie/Movie";
 
-export default function Navbar() {
+export default function SearchBar() {
+  let storeData = useSelector((data) => {
+    return data.searchedMovie;
+  });
+
   let dispatch = useDispatch();
-
-  let [state, setState] = useState([]);
   let debounce = () => {
     let tId;
     return function () {
@@ -30,8 +33,7 @@ export default function Navbar() {
       ) {
         console.log("Opps movie not Found");
       } else {
-        setState(data.Search);
-        myAction(data.Search,dispatch) ;
+        myAction(data.Search, dispatch);
       }
     } catch (error) {
       console.log(error);
@@ -39,16 +41,21 @@ export default function Navbar() {
   };
 
   return (
-    <Box px={6} py={4}>
-      <InputGroup size="md" alignItems="center">
-        <Input
-          type="text"
-          id="searchBox"
-          placeholder="Search your favourite movie..."
-          w={400}
-          onKeyUp={debounce()}
-        />
-      </InputGroup>
-    </Box>
+    <>
+      <Box px={6} py={4}>
+        <InputGroup size="md" alignItems="center">
+          <Input
+            type="text"
+            id="searchBox"
+            placeholder="Search your favourite movie..."
+            w={400}
+            onKeyUp={debounce()}
+          />
+        </InputGroup>
+      </Box>
+
+      {storeData.length !== 0 ? <Movie /> : null}
+
+    </>
   );
 }

@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Box, Image, Text, GridItem, Button } from "@chakra-ui/react";
+import favAction from "../../Redux/Action/favAction";
+import { useDispatch } from "react-redux";
 
+const Card = ({ item }) => {
 
-import { Box, Image, Text, Flex } from "@chakra-ui/react";
+  let [disable, setDisable] = useState(false);
+  let dispatch = useDispatch();
+  let add = () => {
+    favAction(item, dispatch);
+    setDisable(true);
+    
+  };
 
-const Card = (props) => {
-    console.log(props.item) ;
-    let {title,year,Poster} = props.item ;
+  let { Title, Year, Poster, imdbID } = item;
   return (
-    <Flex
+    <GridItem
       maxW="sm"
       borderWidth="1px"
       rounded="lg"
@@ -15,12 +23,21 @@ const Card = (props) => {
       p="5"
       m="5"
     >
-      <Image src={Poster} w="40%" />
+      <Image
+        src={Poster}
+        w="40%"
+        margin={"auto"}
+        boxShadow={"0 0 10px black"}
+        borderRadius={"2px"}
+      />
       <Box p="5">
-        <Text fontWeight="bold">{title}</Text>
-        <Text>{year}</Text>
+        <Text fontWeight="bold">{Title}</Text>
+        <Text>{Year}</Text>
+        <Button colorScheme="blue" isDisabled={disable} onClick={add}>
+          Add to Favourite
+        </Button>
       </Box>
-    </Flex>
+    </GridItem>
   );
 };
 
