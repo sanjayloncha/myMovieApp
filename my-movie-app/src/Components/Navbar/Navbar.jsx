@@ -1,18 +1,24 @@
 import React from "react";
-import { Link,NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import { Text, Flex,Spacer,Box } from "@chakra-ui/react";
-import navStyle from "./NavBar.module.css" ;
 
 export default function Navbar() {
+  let activeLink = {
+    color : "black"
+  }
   return (
     <Box bg="green.500" color="white"   >
       <Flex w="80%" m="auto"  >
-        <Text fontSize="4xl">
-          <NavLink to="/" activeClassName={navStyle.selected} >Home</NavLink>
+        <Text fontSize={["2xl", "3xl", "4xl"]} p="10px" >
+          <NavLink to="/" style={({isActive})=>{
+            return isActive?activeLink:null
+          }} >Home</NavLink>
         </Text>
         <Spacer />
-        <Text fontSize="4xl">
-          <NavLink to="/favourite" activeClassName={navStyle.selected} >Favourite</NavLink>
+        <Text fontSize={["2xl", "3xl", "4xl"]} p="10px" >
+          <NavLink to="/favourite" style={({isActive})=>{
+            return isActive?activeLink:null
+          }} >Favourite</NavLink>
         </Text>
       </Flex>
     </Box>

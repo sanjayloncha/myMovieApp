@@ -12,7 +12,6 @@ function App() {
   let storeData = useSelector((data) => {
     return data.searchedMovie;
   });
-  // console.log(storeData) ;
 
   return (
     <div className="App">
@@ -22,9 +21,6 @@ function App() {
         <Route path='/favourite' element={<Favourite />} />
         <Route path='/view/:id' element={<View />} />
       </Routes>
-      
-      
-      
     </div>
   );
 }
