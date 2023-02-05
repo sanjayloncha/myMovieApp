@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom" ;
+import { Link } from "react-router-dom";
 import {
   Grid,
   Button,
@@ -9,6 +9,7 @@ import {
   Image,
   GridItem,
   Flex,
+  Spacer
 } from "@chakra-ui/react";
 import filterAction from "../../Redux/Action/filterAction";
 
@@ -29,8 +30,8 @@ export default function Favourite() {
 
   return (
     <div>
-      <h1>Welcome to fav component</h1>
-      <Grid templateColumns="repeat(3,1fr)">
+      <Grid templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
+        gridGap={3} >
         {data.length != 0 ? (
           data.map((item, id) => {
             return (
@@ -38,9 +39,10 @@ export default function Favourite() {
                 maxW="sm"
                 borderWidth="1px"
                 rounded="lg"
+                boxShadow="0 0 10px black"
                 overflow="hidden"
-                p="5"
-                m="5"
+                p="2"
+                m="30px auto"
                 key={id}
               >
                 <Image
@@ -53,14 +55,18 @@ export default function Favourite() {
                 <Box p="5">
                   <Text fontWeight="bold">{item.Title}</Text>
                   <Text>{item.Year}</Text>
-                  <Flex>
-                  <Button><Link to={`/view/${item.Title}`} >View</Link></Button>
+                  <Flex w="80%" m="auto" p="20px" >
+                    <Button>
+                      <Link to={`/view/${item.Title}`}>View</Link>
+                    </Button>
+                    <Spacer />
                     <Button
                       colorScheme="blue"
                       onClick={() => remove(item.imdbID)}
                     >
                       Remove
                     </Button>
+                   
                   </Flex>
                 </Box>
               </GridItem>

@@ -10,18 +10,14 @@ export default function View() {
 
   let movie = useParams() ;
   let singleMovie = data.filter((e)=>{
-    // console.log(e.Title) ;
-    // console.log(movie.id) ;
     if(e.Title === movie.id ){
       return e ;
     }
   })
 
-  console.log(singleMovie) ;
-  // console.log(data) ;
   return (
     <div>
-      <h1>view component</h1>
+      
       <GridItem
                 maxW="sm"
                 borderWidth="1px"

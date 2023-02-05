@@ -11,17 +11,16 @@ export default function Movie() {
   let storeData = useSelector((data) => {
     return data.searchedMovie;
   });
-  // console.log(storeData) ;
 
   let add = (item) => {
     favAction(item, dispatch);
-    // setDisable(true);
   };
 
   return (
     <div>
       {storeData.length != 0 ? (
-        <Grid templateColumns={["repeat(3,1fr),repeat(2,1fr),repeat(1,1fr)"]}>
+        <Grid templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
+        gridGap={5} >
           {storeData.map((item, id) => {
             
             return (

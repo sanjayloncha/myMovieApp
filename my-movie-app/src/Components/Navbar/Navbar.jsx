@@ -1,12 +1,20 @@
-import React from 'react' ;
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link,NavLink } from "react-router-dom";
+import { Text, Flex,Spacer,Box } from "@chakra-ui/react";
+import navStyle from "./NavBar.module.css" ;
 
 export default function Navbar() {
-
   return (
-    <div>
-        <Link to="/" >Home</Link>
-        <Link to="/favourite" >Favourite</Link>
-    </div>
-  )
+    <Box bg="green.500" color="white"   >
+      <Flex w="80%" m="auto"  >
+        <Text fontSize="4xl">
+          <NavLink to="/" activeClassName={navStyle.selected} >Home</NavLink>
+        </Text>
+        <Spacer />
+        <Text fontSize="4xl">
+          <NavLink to="/favourite" activeClassName={navStyle.selected} >Favourite</NavLink>
+        </Text>
+      </Flex>
+    </Box>
+  );
 }
