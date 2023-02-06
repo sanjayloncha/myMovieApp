@@ -4,7 +4,8 @@ import { Text, Flex,Spacer,Box } from "@chakra-ui/react";
 
 export default function Navbar() {
   let activeLink = {
-    color : "black"
+    color : "black",
+    textDecoration : "underline"
   }
   return (
     <Box bg="green.500" color="white"   >

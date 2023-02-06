@@ -64,7 +64,7 @@ export default function SearchBar() {
           </InputGroup>
       </Box>
       {
-        flag ? <Box> <Image src="https://miro.medium.com/max/1400/1*Gvgic29bgoiGVLmI6AVbUg.gif" /> </Box> : null
+        flag ? <Box m="auto" > <Image src="https://miro.medium.com/max/1400/1*Gvgic29bgoiGVLmI6AVbUg.gif" /> </Box> : null
       }
       {storeData.length !== 0 ? <Movie /> : null}
     </>

@@ -95,7 +95,8 @@ export default function Favourite() {
             w="50%"
             bg="whiteAlpha.200"
             margin={"20px auto"}
-            borderRadius={"2px"}
+            borderRadius={"10px"}
+            boxShadow="0 0 10px black"
           />
           <Button
             p="10px"

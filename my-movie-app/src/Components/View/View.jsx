@@ -16,11 +16,11 @@ export default function View() {
   });
 
   return (
-    <Box w={["80%","70%","50%","40%"]} h="80vh" m="auto" boxShadow="0 0 10px black"  >
+    <Box w={["70%","60%","50%","40%","20%"]} h={["50vh","80vh"]} m="auto" boxShadow="0 0 10px black"  >
       <Image
         src={singleMovie[0].Poster}
-        w="90%"
-        h="70%"
+        w="80%"
+        h="50%"
         margin={"20px auto"}
         p="10px 5px"
         borderRadius={"2px"}
