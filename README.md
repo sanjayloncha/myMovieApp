@@ -11,3 +11,5 @@ Home Page: In landing page there is one simple navbar, and one search bar to sea
 Favourite Page : In this page, user can see the list of all movie that he has added after searching. If there is no movie added to the favourite than this page shows one image as "NOTHING TO SHOW HERE"  and one button as "SEARCH MOVIE !" which will redirect the user to the home page. Now if user has added movie/s than he can see the details of the movie added by him/her from home page and it contains details like title,year and poster. Along with that it has two buttons as "View" and "Remove" . On clicking on the REMOVE button, that particular movie will be removed and updated list will be shown to the user on favourite page. On clicking on the VIEW button user wil be redirected to the next page that is view page.
 
 View Page : On this page user will be able to view the movie he/she has selected from favourite page .
+
+To store data that is fetched from API and added to favourite, I have used Redux to manage it.
