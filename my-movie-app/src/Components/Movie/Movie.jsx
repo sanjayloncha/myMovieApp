@@ -23,7 +23,7 @@ export default function Movie() {
         >
           {storeData.map((item, id) => {
             return (
-              <Card item={item} id={id} />
+              <Card item={item} id={id} key={id} />
             );
           })}
         </Grid>

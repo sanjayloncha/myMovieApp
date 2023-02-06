@@ -29,8 +29,7 @@ export default function SearchBar() {
   };
 
   let getData = async (movie) => {
-    
-    let url = `http://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;
+    let url = `https://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;
     try {
       let res = await fetch(url);
       let data = await res.json();
