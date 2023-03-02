@@ -16,34 +16,36 @@ export default function Card({ item, id }) {
 
   return (
     <GridItem
-      maxW="sm"
-      boxShadow={"0 0 10px black"}
+      w="70%"
       borderWidth="1px"
       rounded="lg"
       overflow="hidden"
-      p="5"
       m="20px auto"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
       key={id}
     >
       <Image
         src={item.Poster}
         alt="Image not found"
-        w="100%"
-        h="320px"
-        margin={"auto"}
-        boxShadow={"0 0 5px black"}
+        h="250px"
+        margin={"15px auto"}
+        objectFit="contain"
         borderRadius={"2px"}
       />
-      <Box p="5">
-        <Text fontWeight="bold">{item.Title}</Text>
-        <Text>{item.Year}</Text>
+      <Box w="100%" textAlign="left" >
+        <Text ml="20px" fontWeight="bold">{item.Title}</Text>
+        <Text ml="20px" >{item.Year}</Text>
         <Button
           _hover={{
             background: "white",
             color: "green.500",
-            fontWeight: "bold",
           }}
-          marginTop="10px"
+          w="80%"
+          display="block"
+          margin="10px auto"
           bg="green.500"
           color="white"
           isDisabled={a ? true : false}
