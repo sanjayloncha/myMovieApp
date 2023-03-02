@@ -8,9 +8,6 @@ import Movie from "../Movie/Movie";
 export default function SearchBar() {
   const [flag, setFlag] = useState(false);
   const [movie, setMovie] = useState("");
-  // const storeData = useSelector((data) => {
-  //   return data.searchedMovie;
-  // });
 
   const dispatch = useDispatch();
   const debounce = () => {
@@ -29,7 +26,7 @@ export default function SearchBar() {
   };
 
   let getData = async (movie) => {
-    let url = `http://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;
+    let url = `https://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;
     try {
       let res = await fetch(url);
       let data = await res.json();
