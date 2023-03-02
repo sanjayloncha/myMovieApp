@@ -16,18 +16,17 @@ export default function View() {
   });
 
   return (
-    <Box w={["70%","60%","50%","40%","20%"]} h={["50vh","70vh"]} m="auto" boxShadow="0 0 10px black"  >
+    <Box w={["70%","50%","40%","20%"]} m="auto"    >
       <Image
         src={singleMovie[0].Poster}
         w="80%"
         h={["60%","60%","60%"]}
         margin={"20px auto"}
-        p="10px 5px"
         borderRadius={"2px"}
       />
       <Box p="2">
-        <Text fontSize={["20px", "20px", "30px"]} fontWeight="bold">{singleMovie[0].Title}</Text>
-        <Text fontSize={["20px", "20px", "30px"]} p="10px"  >{singleMovie[0].Year}</Text>
+        <Text textAlign="left" ml={["20px","20px"]} fontSize={["20px", "20px", "30px"]} fontWeight="bold">{singleMovie[0].Title}</Text>
+        <Text textAlign="left" ml={["20px","20px"]} fontSize={["20px", "20px", "30px"]}   >{singleMovie[0].Year}</Text>
       </Box>
     </Box>
   );

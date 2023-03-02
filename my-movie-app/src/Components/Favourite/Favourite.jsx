@@ -29,7 +29,7 @@ export default function Favourite() {
   return (
     <div>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(4, 1fr)"]}
+        templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)","repeat(3, 1fr)", "repeat(4, 1fr)"]}
         gridGap={3}
       >
         {data.length != 0
@@ -69,11 +69,6 @@ export default function Favourite() {
                       </Button>
                       {/* <Spacer /> */}
                       <Button
-                        
-                        _hover={{
-                          background: "white",
-                          color: "green.500",
-                        }}
                         bg="green.500"
                         color="white"
                         onClick={() => remove(item.imdbID)}
@@ -90,7 +85,7 @@ export default function Favourite() {
       {data.length == 0 ? (
         <Box w={["90%", "60%", "50%"]} m="auto">
           <Image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy6o9Zxvma0Col4J5ufcAXZx6yo9isGyRyw&usqp=CAU"
+            src="https://i.pinimg.com/originals/49/e5/8d/49e58d5922019b8ec4642a2e2b9291c2.png"
             w="50%"
             bg="whiteAlpha.200"
             margin={"20px auto"}
@@ -100,8 +95,7 @@ export default function Favourite() {
             <Button
               variant="unstyled"
               p="10px"
-              w={["70%", "60%", "40%"]}
-              background="red"
+              background="green.500"
               color="white"
             >
               Search movie !

@@ -17,10 +17,9 @@ export default function Card({ item, id }) {
   return (
     <GridItem
       w="70%"
-      borderWidth="1px"
       rounded="lg"
       overflow="hidden"
-      m="20px auto"
+      m="auto"
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -36,14 +35,14 @@ export default function Card({ item, id }) {
         borderRadius={"2px"}
       />
       <Box w="100%" textAlign="left" >
-        <Text ml="20px" fontWeight="bold">{item.Title}</Text>
-        <Text ml="20px" >{item.Year}</Text>
+        <Text ml={["50px","20px"]} fontWeight="bold">{item.Title}</Text>
+        <Text ml={["50px","20px"]} >{item.Year}</Text>
         <Button
           _hover={{
             background: "white",
             color: "green.500",
           }}
-          w="80%"
+          w={["65%","80%"]}
           display="block"
           margin="10px auto"
           bg="green.500"
