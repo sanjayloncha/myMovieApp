@@ -85,7 +85,7 @@ export default function Favourite() {
       {data.length == 0 ? (
         <Box w={["90%", "60%", "50%"]} m="auto">
           <Image
-            src="https://i.pinimg.com/originals/49/e5/8d/49e58d5922019b8ec4642a2e2b9291c2.png"
+            src="https://assets.materialup.com/uploads/805362d3-e9d6-4aa7-b314-ed9dde22558b/preview.gif"
             w="50%"
             bg="whiteAlpha.200"
             margin={"20px auto"}
