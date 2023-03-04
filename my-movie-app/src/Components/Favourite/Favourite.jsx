@@ -13,7 +13,6 @@ import {
 import filterAction from "../../Redux/Action/filterAction";
 
 export default function Favourite() {
-  let [state, setState] = useState(true);
   let dispatch = useDispatch();
   let data = useSelector((store) => {
     return store.favourites;
