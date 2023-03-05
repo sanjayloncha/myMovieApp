@@ -4,6 +4,8 @@ import myAction from "../../Redux/Action/action";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Movie from "../Movie/Movie";
+import { useEffect } from "react";
+import { sync } from "framer-motion";
 
 export default function SearchBar() {
   const [flag, setFlag] = useState(false);
@@ -24,12 +26,24 @@ export default function SearchBar() {
       }, 2000);
     };
   };
+  useEffect(()=>{
+    getTrending() ;
+  },[]) 
+
+  let getTrending = async () => {
+    let url = `https://www.omdbapi.com/?s=trending&type=movie&apikey=24c8bcdb` ;
+    let res = await fetch(url) ;
+    let data = await res.json() ;
+    myAction(data.Search, dispatch);
+    console.log(data.Search) ;
+  }
 
   let getData = async (movie) => {
     let url = `https://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;
     try {
       let res = await fetch(url);
       let data = await res.json();
+      
       if (
         data.Error === "Movie not found!" ||
         data.Error === "Too many results."
