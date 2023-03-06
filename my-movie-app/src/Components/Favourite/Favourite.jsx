@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -63,9 +63,11 @@ export default function Favourite() {
                       marginTop="10px"
                       justifyContent={"space-between"}
                     >
+                      <Link to={`/view/${item.imdbID}`}>
                       <Button>
-                        <Link to={`/view/${item.Title}`}>View</Link>
+                        View
                       </Button>
+                      </Link>
                       {/* <Spacer /> */}
                       <Button
                         bg="green.500"

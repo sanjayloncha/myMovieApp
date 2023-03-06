@@ -10,11 +10,12 @@ export default function View() {
 
   let movie = useParams();
   let singleMovie = data.filter((e) => {
-    if (e.Title === movie.id) {
+    if (e.imdbID === movie.id) {
       return e;
     }
   });
-
+  console.log(singleMovie) ;
+  
   return (
     <Box w={["70%","50%","40%","20%"]} m="auto"    >
       <Image
@@ -29,5 +30,6 @@ export default function View() {
         <Text textAlign="left" ml={["20px","20px"]} fontSize={["20px", "20px", "30px"]}   >{singleMovie[0].Year}</Text>
       </Box>
     </Box>
+    
   );
 }

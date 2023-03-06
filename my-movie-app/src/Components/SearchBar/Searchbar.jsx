@@ -5,11 +5,12 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Movie from "../Movie/Movie";
 import { useEffect } from "react";
-import { sync } from "framer-motion";
 
 export default function SearchBar() {
   const [flag, setFlag] = useState(false);
   const [movie, setMovie] = useState("");
+
+  const movie_data = useSelector((storeData)=>storeData.searchedMovie) ;
 
   const dispatch = useDispatch();
   const debounce = () => {
@@ -27,16 +28,10 @@ export default function SearchBar() {
     };
   };
   useEffect(()=>{
-    getTrending() ;
+    myAction(movie_data, dispatch);
   },[]) 
 
-  let getTrending = async () => {
-    let url = `https://www.omdbapi.com/?s=trending&type=movie&apikey=24c8bcdb` ;
-    let res = await fetch(url) ;
-    let data = await res.json() ;
-    myAction(data.Search, dispatch);
-    console.log(data.Search) ;
-  }
+  
 
   let getData = async (movie) => {
     let url = `https://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;

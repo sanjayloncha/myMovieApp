@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { Grid } from "@chakra-ui/react";
+import { Grid,Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 
 export default function Movie() {
 
-  let storeData = useSelector((data) => {
-    return data.searchedMovie;
-  });
-
+  let storeData = useSelector((storeData)=>storeData.searchedMovie) ;
 
   return (
-    <div>
-      {storeData.length != 0 ? (
+    <Box>
+      {storeData.length !== 0 ? (
         <Grid
           templateColumns={[
             "repeat(1, 1fr)",
@@ -29,6 +26,6 @@ export default function Movie() {
           })}
         </Grid>
       ) : null}
-    </div>
+    </Box>
   );
 }
