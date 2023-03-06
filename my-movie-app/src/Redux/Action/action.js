@@ -1,8 +1,11 @@
+import axios from "axios";
+
 const myAction = (data, dispatch) => {
-    if (data.length == 0) {
+    if (data.length === 0) {
         getMovieData(dispatch, "trending");
     }
     if (typeof (data) !== "object") {
+        console.log(data);
         getMovieData(dispatch, data);
     }
 }
@@ -10,8 +13,9 @@ const myAction = (data, dispatch) => {
 let getMovieData = async (dispatch, movie) => {
     let url = `https://www.omdbapi.com/?s=${movie}&type=movie&apikey=24c8bcdb`;
     try {
-        let res = await fetch(url);
-        let data = await res.json();
+        const response = await axios.get(url);
+        let data = response.data.Search ;
+        console.log(response);
 
         if (
             data.Error === "Movie not found!" ||
@@ -21,7 +25,7 @@ let getMovieData = async (dispatch, movie) => {
         } else {
             dispatch({
                 type: "SEARCHMOVIE",
-                payload: data.Search
+                payload: data
             })
         }
     } catch (error) {

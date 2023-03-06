@@ -14,13 +14,14 @@ export default function SearchBar() {
 
   const dispatch = useDispatch();
   const debounce = (e) => {
-    if (e.key !== "Backspace") {
+    if (e.key !== "Backspace" && e.key !== " ") {
+      setFlag(true);
       let timerID;
       return function () {
-        setFlag(true);
         if (timerID) clearTimeout(timerID);
-        timerID = setTimeout(function () {
+        timerID = setTimeout(() => {
           if (movie.length !== 0) {
+            // console.log(movie);
             myAction(movie, dispatch);
             setFlag(false);
           } else {
