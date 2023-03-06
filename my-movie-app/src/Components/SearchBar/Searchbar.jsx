@@ -2,38 +2,23 @@ import React, { useState } from "react";
 import { Box, Input, InputGroup, Image } from "@chakra-ui/react";
 import myAction from "../../Redux/Action/action";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import Movie from "../Movie/Movie";
 import { useEffect } from "react";
 
 export default function SearchBar() {
-  const [flag, setFlag] = useState(false);
-  const [movie, setMovie] = useState("");
-
-  const movie_data = useSelector((storeData) => storeData.searchedMovie);
+  const [flag, setFlag] = useState(true);
+  const [movie, setMovie] = useState("trending");
 
   const dispatch = useDispatch();
-  const debounce = (e) => {
-    if (e.key !== "Backspace" && e.key !== " ") {
-      setFlag(true);
-      let timerID;
-      return function () {
-        if (timerID) clearTimeout(timerID);
-        timerID = setTimeout(() => {
-          if (movie.length !== 0) {
-            // console.log(movie);
-            myAction(movie, dispatch);
-            setFlag(false);
-          } else {
-            setFlag(false);
-          }
-        }, 2000);
-      };
-    }
-  };
+
   useEffect(() => {
-    myAction(movie_data, dispatch);
-  }, []);
+    setFlag(true) ;
+    const getData = setTimeout(() => {
+      myAction(movie, dispatch);
+      setFlag(false);
+    },1500);
+    return () => clearTimeout(getData);
+  }, [movie]);
 
   return (
     <>
@@ -48,8 +33,6 @@ export default function SearchBar() {
             onChange={(e) => {
               setMovie(e.target.value);
             }}
-            onKeyUp={(e) => debounce(e)()}
-            value={movie}
           />
         </InputGroup>
       </Box>
@@ -61,8 +44,7 @@ export default function SearchBar() {
             w="300px"
           />{" "}
         </Box>
-      ) : null}
-      {!flag && <Movie />}
+      ) : <Movie />}
     </>
   );
 }
