@@ -28,34 +28,45 @@ export default function Favourite() {
   return (
     <div>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)","repeat(3, 1fr)", "repeat(4, 1fr)"]}
+        templateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(4, 1fr)",
+        ]}
         gridGap={3}
       >
         {data.length != 0
           ? data.map((item, id) => {
               return (
                 <GridItem
-                w="70%"
-                borderWidth="1px"
-                rounded="lg"
-                overflow="hidden"
-                m="20px auto"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                key={id}
+                  w="70%"
+                  borderWidth="1px"
+                  rounded="lg"
+                  overflow="hidden"
+                  m="20px auto"
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  key={id}
                 >
                   <Image
-                    src={item.Poster}
+                    src={
+                      item.Poster === "N/A"
+                        ? "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png"
+                        : item.Poster
+                    }
                     h="250px"
                     borderRadius={"2px"}
                     margin={"15px auto"}
                     objectFit="contain"
                   />
                   <Box p="5" textAlign="left">
-                    <Text ml="20px" fontWeight="bold">{item.Title}</Text>
-                    <Text ml="20px" >{item.Year}</Text>
+                    <Text ml="20px" fontWeight="bold">
+                      {item.Title}
+                    </Text>
+                    <Text ml="20px">{item.Year}</Text>
                     <Flex
                       w="90%"
                       m="auto"
@@ -64,9 +75,7 @@ export default function Favourite() {
                       justifyContent={"space-between"}
                     >
                       <Link to={`/view/${item.imdbID}`}>
-                      <Button>
-                        View
-                      </Button>
+                        <Button>View</Button>
                       </Link>
                       {/* <Spacer /> */}
                       <Button
