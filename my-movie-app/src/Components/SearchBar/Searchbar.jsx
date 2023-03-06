@@ -10,50 +10,29 @@ export default function SearchBar() {
   const [flag, setFlag] = useState(false);
   const [movie, setMovie] = useState("");
 
-  const movie_data = useSelector((storeData)=>storeData.searchedMovie) ;
+  const movie_data = useSelector((storeData) => storeData.searchedMovie);
 
   const dispatch = useDispatch();
-  const debounce = () => {
-    let timerID;
-    return function () {
-      setFlag(true);
-      if (timerID) clearTimeout(timerID);
-      timerID = setTimeout(function () {
-        if (movie.length != 0) {
-          getData(movie);
-        } else {
-          setFlag(false);
-        }
-      }, 2000);
-    };
-  };
-  useEffect(()=>{
-    myAction(movie_data, dispatch);
-  },[]) 
-
-  
-
-  let getData = async (movie) => {
-    let url = `https://www.omdbapi.com?S=${movie}&apikey=24c8bcdb`;
-    try {
-      let res = await fetch(url);
-      let data = await res.json();
-      
-      if (
-        data.Error === "Movie not found!" ||
-        data.Error === "Too many results."
-      ) {
-        console.log("Opps movie not Found");
-        setFlag(false);
-      } else {
-        setFlag(false);
-        myAction(data.Search, dispatch);
-        setMovie("");
-      }
-    } catch (error) {
-      console.log(error);
+  const debounce = (e) => {
+    if (e.key !== "Backspace") {
+      let timerID;
+      return function () {
+        setFlag(true);
+        if (timerID) clearTimeout(timerID);
+        timerID = setTimeout(function () {
+          if (movie.length !== 0) {
+            myAction(movie, dispatch);
+            setFlag(false);
+          } else {
+            setFlag(false);
+          }
+        }, 2000);
+      };
     }
   };
+  useEffect(() => {
+    myAction(movie_data, dispatch);
+  }, []);
 
   return (
     <>
@@ -68,7 +47,7 @@ export default function SearchBar() {
             onChange={(e) => {
               setMovie(e.target.value);
             }}
-            onKeyUp={debounce()}
+            onKeyUp={(e) => debounce(e)()}
             value={movie}
           />
         </InputGroup>
