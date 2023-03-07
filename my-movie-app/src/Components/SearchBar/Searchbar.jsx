@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Box, Input, InputGroup, Image } from "@chakra-ui/react";
 import myAction from "../../Redux/Action/action";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import Movie from "../Movie/Movie";
 import { useEffect } from "react";
 
 export default function SearchBar() {
   const [flag, setFlag] = useState(true);
   const [movie, setMovie] = useState("trending");
+  
 
   const dispatch = useDispatch();
 
@@ -33,6 +34,7 @@ export default function SearchBar() {
             onChange={(e) => {
               setMovie(e.target.value);
             }}
+            value={movie}
           />
         </InputGroup>
       </Box>
