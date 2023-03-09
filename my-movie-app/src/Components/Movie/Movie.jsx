@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 
 export default function Movie() {
-  let [sortMovie, setSort] = useState("high_to_low");
-  let storeData = useSelector((storeData) => storeData.searchedMovie);
+  const [sortMovie, setSort] = useState("high_to_low");
+  const storeData = useSelector((storeData) => storeData.searchedMovie);
 
   const sort = (e) => {
     setSort(e.target.value);

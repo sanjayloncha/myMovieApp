@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const myAction = async (data, dispatch) => {
+const myAction = async (data, dispatch,fn) => {
   let url = `https://www.omdbapi.com/?s=${data}&type=movie&apikey=24c8bcdb`;
   try {
     const response = await axios.get(url);
@@ -16,6 +16,7 @@ const myAction = async (data, dispatch) => {
         type: "SEARCHMOVIE",
         payload: data,
       });
+      fn(false) ;
     }
   } catch (error) {
     alert("Error occured!");

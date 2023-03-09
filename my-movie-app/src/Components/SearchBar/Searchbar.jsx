@@ -15,8 +15,7 @@ export default function SearchBar() {
   useEffect(() => {
     setFlag(true) ;
     const getData = setTimeout(() => {
-      myAction(movie, dispatch);
-      setFlag(false);
+      myAction(movie, dispatch,setFlag);
     },1500);
     return () => clearTimeout(getData);
   }, [movie]);
