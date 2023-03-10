@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const myAction = async (data, dispatch,fn) => {
+  data = data || "trending"
   let url = `https://www.omdbapi.com/?s=${data}&type=movie&apikey=24c8bcdb`;
   try {
     const response = await axios.get(url);
