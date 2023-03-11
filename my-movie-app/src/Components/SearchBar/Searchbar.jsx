@@ -18,7 +18,6 @@ export default function SearchBar() {
   const [flag, setFlag] = useState(true);
   const [movie, setMovie] = useState("");
 
-  // console.log(movie.length) ;
   const dispatch = useDispatch();
 
   useEffect(() => {
