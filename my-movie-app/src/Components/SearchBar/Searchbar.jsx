@@ -17,7 +17,6 @@ import { useEffect } from "react";
 export default function SearchBar() {
   const [flag, setFlag] = useState(true);
   const [movie, setMovie] = useState("");
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,20 +44,22 @@ export default function SearchBar() {
           />
         </InputGroup>
       </Box>
-      {flag ? 
-        
-          movie.length !== 0 ?  (<Box display="flex" justifyContent="center" alignItems="center">
-          <Image
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e8305169321565.5b7d0cbe717fe.gif"
-            w="300px"
-          />
-        </Box>) : <Stack w="70%" m="auto">
-          <Skeleton height="120px" />
-          <Skeleton height="120px" />
-          <Skeleton height="120px" />
-        </Stack>
-        
-       : (
+      {flag ? (
+        movie.length !== 0 ? (
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Image
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e8305169321565.5b7d0cbe717fe.gif"
+              w="300px"
+            />
+          </Box>
+        ) : (
+          <Stack w="70%" m="auto">
+            <Skeleton height="120px" />
+            <Skeleton height="120px" />
+            <Skeleton height="120px" />
+          </Stack>
+        )
+      ) : (
         <Movie />
       )}
     </>

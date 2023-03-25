@@ -14,7 +14,6 @@ export default function View() {
       return e;
     }
   });
-  console.log(singleMovie);
 
   return (
     <Box w={["70%", "50%", "40%", "20%"]} m="auto">

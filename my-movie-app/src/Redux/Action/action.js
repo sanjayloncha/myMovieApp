@@ -13,6 +13,7 @@ const myAction = async (data, dispatch,fn) => {
     ) {
       console.log("Opps movie not Found");
     } else {
+      console.log(response) ;
       dispatch({
         type: "SEARCHMOVIE",
         payload: data,
