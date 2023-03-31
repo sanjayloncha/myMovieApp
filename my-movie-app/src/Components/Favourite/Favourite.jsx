@@ -79,7 +79,7 @@ export default function Favourite() {
                       </Link>
                       {/* <Spacer /> */}
                       <Button
-                        bg="green.500"
+                        bg="blue.500"
                         color="white"
                         onClick={() => remove(item.imdbID)}
                       >
@@ -105,7 +105,7 @@ export default function Favourite() {
             <Button
               variant="unstyled"
               p="10px"
-              background="green.500"
+              background="blue.500"
               color="white"
             >
               Search movie !

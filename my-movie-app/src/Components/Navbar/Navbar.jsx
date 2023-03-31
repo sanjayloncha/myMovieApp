@@ -9,7 +9,7 @@ export default function Navbar() {
   }
 
   return (
-    <Box bg="green.500" color="white"   >
+    <Box bg="blue.500" color="white"   >
       <Flex w="80%" m="auto"  >
         <Text fontSize={["20px", "25px"]} p="10px" >
           <NavLink to="/" style={({isActive})=>{

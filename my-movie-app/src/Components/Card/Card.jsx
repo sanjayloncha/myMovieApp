@@ -40,12 +40,12 @@ export default function Card({ item, id }) {
         <Button
           _hover={{
             background: "white",
-            color: "green.500",
+            color: "blue.500",
           }}
           w={["65%","80%"]}
           display="block"
           margin="10px auto"
-          bg="green.500"
+          bg="blue.500"
           color="white"
           isDisabled={a ? true : false}
           onClick={() => add(item)}
